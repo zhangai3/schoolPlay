@@ -1,0 +1,90 @@
+.post-box {
+  height: 300rpx;
+  background-color: white;
+}
+
+.title {
+  height: 80rpx;
+  width: 90%;
+  margin: auto;
+  border-bottom: 1px solid #f2f2f2;
+  display: flex;
+  align-items: center;
+  /* border-top: 1px solid #f2f2f2; */
+}
+
+input {
+  width: 100%;
+}
+
+.content {
+  height: 160rpx;
+  width: 90%;
+  margin: auto;
+  /* border-bottom: 1px solid #f2f2f2; */
+}
+
+textarea {
+  width: 100%;
+  height: 140rpx !important;
+  margin-top: 20rpx;
+  /* overflow: scroll; */
+}
+
+.textarea {
+  /* color: yellow; */
+}
+
+/* 添加照片 */
+
+.add-images-box {
+  width: 100%;
+  height: 700rpx;
+  margin: 20rpx auto;
+  background-color: white;
+}
+
+.add-images {
+  width: 90%;
+  margin: auto;
+  /* flex布局 */
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.img-box {
+  height: 200rpx;
+  width: 200rpx;
+  margin-top: 20rpx;
+}
+
+.add {
+  border: 1px solid #b9babd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add image {
+  height: 100rpx;
+  width: 100rpx;
+}
+
+image {
+  height: 200rpx;
+  width: 200rpx;
+}
+
+/* 添加照片结束 */
+
+.submit {
+  height: 60rpx;
+  width: 200rpx;
+  line-height: 60rpx;
+  margin: auto;
+  border: 1px solid red;
+  border-radius: 60rpx;
+  text-align: center;
+}

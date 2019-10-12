@@ -1,0 +1,48 @@
+<!-- <swiper style="width:100%;height:250rpx;" indicator-dots="true" autoplay="true" interval="5000">
+  <swiper-item>
+    <image src="/image/swiper1.jpg" style="width:100%;height:250rpx;"></image>
+  </swiper-item>
+  <swiper-item>
+    <image src="/image/swiper2.jpg" style="width:100%;height:250rpx;"></image>
+  </swiper-item>
+  <swiper-item>
+    <image src="/image/swiper3.jpg" style="width:100%;height:250rpx;"></image>
+  </swiper-item>
+</swiper> -->
+<!-- <view>从存储中得到的数据:{{storage}}</view> -->
+
+
+
+<view class="new-list" wx:if="{{flag}}">
+  <view class="main">
+    <image src="{{pic_src1}}" style="width:100%;height:300rpx;"></image>
+    <view class="title">
+      {{storage_title}}
+    </view>
+    <text class="new">{{storage_input}}</text>
+  </view>
+  <view class="bottom">
+    <text class="left">宝贝珊珊</text>
+    <text class="right"></text>
+  </view>
+</view>
+
+
+
+<view class="new-list" wx:for="{{tech}}" wx:key="index">
+  <view class="main">
+    <image src="{{item.picInfo[0].url}}" style="width:100%;height:300rpx;"></image>
+    <view class="title">
+      {{item.title}}
+    </view>
+    <text class="new">近日，斯巴鲁那么官方表示，在2019年东京车展中，运动轿车WRX STI的特别版本——WRX STI Final Edition将会亮相，并且这款车的预订也会在今年年底停止，发动机也会在年底停止生产，这款车共限量555台，将在性能和车型设计方面做出改进。</text>
+  </view>
+  <view class="bottom">
+    <text class="left">{{item.source}}</text>
+    <text class="right">{{item.ptime}}</text>
+  </view>
+</view>
+
+<view class="post-box" bindtap="onTap_post">
+  <image class="post" src="http://47.98.240.189/images/post.png" />
+</view>

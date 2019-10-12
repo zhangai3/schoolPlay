@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/post/post",
+    "pages/mine/mine",
+    "pages/timetable/timetable",
+    "pages/checkAttendance/checkAttendance"
+  ],
+  "window": {
+    "navigationBarTitleText": "广航",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#ccc",
+    "selectedColor": "#35495e",
+    "backgroundColor": "#f9f9f9",
+    "list": [
+      {
+        "iconPath": "tarBar/index.png",
+        "selectedIconPath": "tarBar/index1.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "iconPath": "tarBar/timetable.png",
+        "selectedIconPath": "tarBar/timetable1.png",
+        "pagePath": "pages/timetable/timetable",
+        "text": "课程表"
+      },
+      {
+        "iconPath": "tarBar/checkAttendance.png",
+        "selectedIconPath": "tarBar/checkAttendance1.png",
+        "pagePath": "pages/checkAttendance/checkAttendance",
+        "text": "考勤"
+      },
+      {
+        "iconPath": "tarBar/mine.png",
+        "selectedIconPath": "tarBar/mine1.png",
+        "pagePath": "pages/mine/mine",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap3.json"
+}

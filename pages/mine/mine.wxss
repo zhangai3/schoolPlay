@@ -1,0 +1,68 @@
+/* 头部 */
+
+.bg-box {
+  position: relative;
+  height: 400rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg {
+  height: 400rpx;
+  width: 100%;
+  position: absolute;
+  background-image: url(http://47.98.240.189/images/avatar.jpg);
+  background-position: center center;
+  background-size: cover;
+  filter: blur(10px);
+}
+
+.avatar-box {
+  position: absolute;
+  width: 160rpx;
+  height: 160rpx;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 1px solid white;
+  left: 50%;
+  top: 50%;
+  margin-left: -80rpx;
+  margin-top: -80rpx;
+}
+
+.avatar {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.bg-box text {
+  position: absolute;
+  color: white;
+  bottom: 50rpx;
+  z-index: 9999;
+}
+
+/* 头部结束 */
+
+/* 主体开始 */
+
+.mine-list-box {
+  width: 100%;
+  background-color: white;
+  margin-top: 50rpx;
+}
+
+.mine-list {
+  height: 90rpx;
+  width: 90%;
+  margin: auto;
+  line-height: 90rpx;
+}
+.mine-list-box text{
+  color: #939393;
+}
+
+/* 主体结束 */

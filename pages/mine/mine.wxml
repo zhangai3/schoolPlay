@@ -1,0 +1,38 @@
+<view class="bg-box">
+  <view class="bg">
+  </view>
+  <view class="avatar-box">
+    <image class="avatar" src="http://47.98.240.189/images/avatar.jpg" />
+  </view>
+  <text class="name">Smahil</text>
+</view>
+
+<view class="mine-list-box">
+  <view class="mine-list">
+    <text class="left">实人认证</text>
+    <text class="right">></text>
+  </view>
+  <view class="mine-list">
+    <text class="left">实人认证</text>
+    <text class="right">></text>
+  </view>
+  <view class="mine-list">
+    <text class="left">实人认证</text>
+    <text class="right">></text>
+  </view>
+  <view class="mine-list">
+    <text class="left">实人认证</text>
+    <text class="right">></text>
+  </view>
+</view>
+
+<view class="mine-list-box" style="margin-top:30rpx;">
+  <view class="mine-list">
+    <text class="left">实人认证</text>
+    <text class="right">></text>
+  </view>
+  <view class="mine-list">
+    <text class="left">实人认证</text>
+    <text class="right">></text>
+  </view>
+</view>

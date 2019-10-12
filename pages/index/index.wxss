@@ -1,0 +1,77 @@
+/* pages/index/index.wxss */
+
+/* 新闻列表开始 */
+
+page {
+  background-color: #f2f2f2;
+}
+
+.new-list {
+  width: 90%;
+  margin: auto;
+  border-bottom: 5px #ebebeb solid;
+  background-color: #fff;
+}
+
+.main .title {
+  height: 120rpx;
+  /* background-color: pink; */
+  font-size: 20px;
+  text-align: center;
+  width: 92%;
+  margin: auto;
+  color: #505050;
+}
+
+.new {
+  font-size: 14px;
+  color: #999;
+  text-indent: 2em;
+  display: block;
+  width: 92%;
+  margin: auto;
+  /* 文志溢出换行 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.bottom {
+  height: 70rpx;
+  /* background-color: pink; */
+}
+
+.bottom text {
+  height: 70rpx;
+  line-height: 70rpx;
+  color: #505050;
+  font-size: 14px;
+}
+
+/* 新闻列表结束 */
+
+/* 发布帖子 */
+
+.post-box {
+  height: 80rpx;
+  width: 80rpx;
+  border-radius: 50%;
+  /* border: 1px solid red; */
+  overflow: hidden;
+  position: fixed;
+  right: 20rpx;
+  bottom: 50rpx;
+  background-color: #bbe4f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post {
+  height: 50rpx;
+  width: 50rpx;
+}
+
+/* 发布帖子结束 */
