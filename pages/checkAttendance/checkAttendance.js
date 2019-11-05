@@ -5,14 +5,53 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    latitude:'',
+    longitude:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var _this=this;
+    wx.getLocation({
+      success: function (res) {
+        console.log(res.latitude)
+        _this.setData({
+          latitude:res.latitude,
+          longitude:res.longitude,
+          markers:[
+            {
+              id: 1,
+              latitude: 23.099956,
+              longitude: 113.478912,
+              iconPath: "/img/location-o.png",
+              height: 50,
+              width: 50,
+              callout:{
+                content:'打卡地点',
+                color:'#1883D7',
+                fontSize:16,
+                display:"block"
+              }
+            },
+            {
+            id:2,
+            latitude: res.latitude,
+            longitude: res.longitude,
+            // iconPath:"/img/touxiang.jpg",
+            height:50,
+            width:50
+          }],
+          circles:[{
+            latitude: 23.099956,
+            longitude: 113.478912,
+            fillColor: '#7cb5ec88',
+            radius:1000
+          }]
+        })
+       },
+    })
   },
 
   /**
@@ -62,5 +101,6 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  
 })

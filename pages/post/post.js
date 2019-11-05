@@ -77,21 +77,36 @@ Page({
       success(res) {
         //选择完成会先返回一个临时地址保存备用
         const tempFilePaths = res.tempFilePaths
-        //将照片上传至云端需要刚才存储的临时地址
-        wx.cloud.uploadFile({
-          cloudPath: 'test.jpg',
+        wx.uploadFile({
+          url: 'https://example.weixin.qq.com/upload', //仅为示例，非真实的接口地址
           filePath: tempFilePaths[0],
-          success(res) {
-            // //上传成功后会返回永久地址
-            that.setData({
-              pic_src:res.fileID
-            })
-            wx.setStorageSync('pic_src', res.fileID)
+          name: 'file',
+          formData: {
+            'user': 'test'
           },
-          fail(){
-            console.log('失败')
+          success(res) {
+            const data = res.data
+            //do something
           }
         })
+
+
+
+        //将照片上传至云端需要刚才存储的临时地址
+        // wx.cloud.uploadFile({
+        //   cloudPath: 'test.jpg',
+        //   filePath: tempFilePaths[0],
+        //   success(res) {
+        //     // //上传成功后会返回永久地址
+        //     that.setData({
+        //       pic_src:res.fileID
+        //     })
+        //     wx.setStorageSync('pic_src', res.fileID)
+        //   },
+        //   fail(){
+        //     console.log('失败')
+        //   }
+        // })
       }
     })
   },
