@@ -1,8 +1,10 @@
 {
   "pages": [
+    "pages/post/post",
+    "pages/login/index",
     "pages/index/index",
     "pages/checkAttendance/checkAttendance",
-    "pages/post/post",
+    
     "pages/mine/mine",
     "pages/timetable/timetable"  
   ],

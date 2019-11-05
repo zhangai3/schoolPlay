@@ -1,4 +1,6 @@
 // pages/post/post.js
+const app = getApp()
+
 Page({
 
   /**
@@ -77,15 +79,23 @@ Page({
       success(res) {
         //选择完成会先返回一个临时地址保存备用
         const tempFilePaths = res.tempFilePaths
+        console.log(res)
         wx.uploadFile({
-          url: 'https://example.weixin.qq.com/upload', //仅为示例，非真实的接口地址
+          url: app.globalUrl+'/upload/uploadImg', //仅为示例，非真实的接口地址
           filePath: tempFilePaths[0],
-          name: 'file',
+          name: 'imgFile',
           formData: {
-            'user': 'test'
+            'imgName': tempFilePaths[0]
           },
           success(res) {
-            const data = res.data
+            console.log(res.data)
+            const data = JSON.parse(res.data)
+            console.log(data.data)
+            that.setData({
+              pic_src: app.imgUrl+data.data
+            })
+            wx.setStorageSync('pic_src', res.fileID)
+            console.log(wx.getStorageSync('pic_src'))
             //do something
           }
         })
