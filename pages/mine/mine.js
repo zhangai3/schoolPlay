@@ -6,72 +6,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    //弹窗组件
+    show: false,
+    buttons: [{
+      type: 'primary',
+      className: '',
+      text: '授权',
+      value: 1
+    }]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-    // getsetting 获取用户的当前设置
-    wx.getSetting({
-      success(res) {
-        console.log(res.authSetting)
-        console.log(app.isBlank(res.authSetting))
-        // 如果没授权过
-        if (app.isBlank(res.authSetting) || !res.authSetting['scope.userInfo']) {
-          // 授权
-          wx.authorize({
-            scope: 'scope.userInfo',
-            success() {
-              //
-              wx.getUserInfo({
-                success: function(res) {
-                  var userInfo = res.userInfo
-                  var nickName = userInfo.nickName
-                  var avatarUrl = userInfo.avatarUrl
-                  var gender = userInfo.gender //性别 0：未知、1：男、2：女
-                  var province = userInfo.province
-                  var city = userInfo.city
-                  var country = userInfo.country
-                  wx.login({
-                    success(res) {
-                      if (res.code) {
-                        //发起网络请求
-                        wx.request({
-                          url: '',
-                          data: {
-                            code: res.code
-                          }
-                        })
-                      } else {
-                        console.log('登录失败！' + res.errMsg)
-                      }
-                    }
-                  })
-                }
-              })
-            }
-          })
-        } else {
-          wx.login({
-            success(res) {
-              if (res.code) {
-                //发起网络请求
-                wx.request({
-                  url: 'https://test.com/onLogin',
-                  data: {
-                    code: res.code
-                  }
-                })
-              } else {
-                console.log('登录失败！' + res.errMsg)
-              }
-            }
-          })
-        }
-      }
-    })
+  onLoad: function() {
+    app.init()
   },
 
   /**
@@ -121,5 +70,46 @@ Page({
    */
   onShareAppMessage: function() {
 
+  },
+  getUserInfo: function() {
+    if (app.isLogin()) { //已授权
+      this.navigateJudge()
+    } else { //未授权（弹出授权窗口）
+      this.setData({
+        show: true
+      })
+    }
+  },
+  navigateJudge: function(){
+    //获取用户信息
+    let userInfo = app.getGlobalUserInfo()
+    let userType = userInfo.userType
+    if (app.isBlank(userInfo.userType)) { //未绑定个人信息
+      // 跳转到选择身份页面
+      wx.navigateTo({
+        url: '/pages/identity/identity'
+      })
+    }
+    //1学生 2老师  3管理员
+    //获取用户信息，判断用户类型
+    if (userType == 1) {
+      wx.navigateTo({
+        //学生信息页面
+        url: '/pages/stuInfo/stuInfo'
+      })
+    }
+    if (userType == 2) {
+      wx.navigateTo({
+        //老师信息页面
+        url: '/pages/teacherInfo/teacherInfo'
+      })
+    }
+  },
+  buttontap(e) {
+    //console.log("buttontap",e.detail)
+    this.setData({
+      show: false
+    })
+    this.navigateJudge()
   }
 })

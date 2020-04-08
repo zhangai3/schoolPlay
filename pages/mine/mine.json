@@ -1,3 +1,6 @@
 {
-  "navigationStyle": "custom"
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "mp-dialog": "../../components/half-screen-dialog/half-screen-dialog"
+  }
 }

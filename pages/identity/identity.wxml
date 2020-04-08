@@ -1,0 +1,10 @@
+<view class="container">
+  <view class="box" style="margin-bottom:80px;" bindtap="goToStuInfo">
+    <view><image src="../../img/student.png"/></view>
+    <text>我是学生</text>
+  </view>
+  <view class="box">
+    <view><image src="../../img/teacher.png" bindtap="goToTeacherInfo"/></view>
+    <text>我是老师</text>
+  </view>
+</view>

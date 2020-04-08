@@ -8,8 +8,8 @@
 </view>
 
 <view class="mine-list-box">
-  <view class="mine-list">
-    <text class="left">实人认证</text>
+  <view class="mine-list" bindtap="getUserInfo">
+    <text class="left">个人信息</text>
     <text class="right">></text>
   </view>
   <view class="mine-list">
@@ -17,22 +17,20 @@
     <text class="right">></text>
   </view>
   <view class="mine-list">
-    <text class="left">实人认证</text>
-    <text class="right">></text>
-  </view>
-  <view class="mine-list">
-    <text class="left">实人认证</text>
+    <text class="left">帮助与反馈</text>
     <text class="right">></text>
   </view>
 </view>
 
 <view class="mine-list-box" style="margin-top:30rpx;">
   <view class="mine-list">
-    <text class="left">实人认证</text>
+    <text class="left">账号与安全</text>
     <text class="right">></text>
   </view>
   <view class="mine-list">
-    <text class="left">实人认证</text>
+    <text class="left">关于SchoolPlay</text>
     <text class="right">></text>
   </view>
 </view>
+
+<mp-dialog bindbuttontap="buttontap" open-type="getUserInfo" show="{{show}}" maskClosable="{{false}}" title="用户授权" subTitle="" desc="请确认授权以下信息" tips="·获取你的公开信息（昵称、头像等）" buttons="{{buttons}}"></mp-dialog>

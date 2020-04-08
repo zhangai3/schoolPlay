@@ -1,56 +1,84 @@
-/* pages/index/index.wxss */
-
 /* 新闻列表开始 */
 
 page {
-  background-color: #f2f2f2;
+  background-color: #f5f5f5;
+  padding: 10rpx 20rpx;
+  box-sizing: border-box;
 }
 
-.new-list {
-  width: 90%;
-  margin: auto;
-  border-bottom: 5px #ebebeb solid;
+.list {
+  width: 100%;
+  height: auto;
   background-color: #fff;
+  padding: 20rpx 40rpx 0;
+  box-sizing: border-box;
 }
 
-.main .title {
-  height: 120rpx;
-  /* background-color: pink; */
-  font-size: 20px;
-  text-align: center;
-  width: 92%;
-  margin: auto;
-  color: #505050;
+.mine {
+  height: 90rpx;
+  width: 100%;
+  /* border: 1px solid red; */
 }
 
-.new {
-  font-size: 14px;
-  color: #999;
-  text-indent: 2em;
-  display: block;
-  width: 92%;
-  margin: auto;
-  /* 文志溢出换行 */
+.avatar {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
   overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
+  display: inline-block;
+}
+
+.avatar image {
+  width: 88rpx;
+  height: 88rpx;
+}
+
+.nt {
+  /* background-color: pink; */
+  display: inline-block;
+  vertical-align: top;
+}
+
+.name {
+  font-size: 40rpx;
+}
+
+.time {
+  color: #c6c6c6;
+  font-size: 24rpx;
+}
+
+.main {
+  border-bottom: 1px solid #efefef;
+  font-size: 26rpx;
+  margin: 10rpx 0;
+  box-sizing: border-box;
+}
+.main image{
+  width: 400rpx;
+  max-height: 400rpx;
+  /* height: auto; */
+  border-radius: 20rpx;
+  margin-right: 10rpx;
 }
 
 .bottom {
-  height: 70rpx;
-  /* background-color: pink; */
+  height: 60rpx;
+  position: relative;
 }
 
-.bottom text {
-  height: 70rpx;
-  line-height: 70rpx;
-  color: #505050;
-  font-size: 14px;
+.icon {
+  display: inline-block;
+  position: absolute;
+  line-height: 60rpx;
 }
 
-/* 新闻列表结束 */
+.icon text {
+  font-size: 24rpx;
+  position: absolute;
+  top: 3rpx;
+  margin-left:10rpx; 
+}
 
 /* 发布帖子 */
 

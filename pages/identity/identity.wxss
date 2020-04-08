@@ -1,0 +1,25 @@
+.container{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.box view{
+  border: 3px solid #F8F8F8;
+  height: 300rpx;
+  width: 300rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+text{
+  position: absolute;
+  left: 40%;
+  font-size: 18px;
+  font-weight: 700;
+  color: #2C2C2C;
+}
+image{
+  height: 300rpx;
+  width: 300rpx;
+}

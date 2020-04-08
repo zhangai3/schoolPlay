@@ -1,0 +1,74 @@
+page{
+  background-color: #f6f6f8;
+}
+
+.class-list {
+  margin: auto;
+  width: 95%;
+  height: 270rpx;
+  position: relative;
+  background-color: #fff;
+  border-radius: 20rpx;
+}
+
+.class-list .bottom {
+  height: 70rpx;
+  width: 100%;
+  background-color: #93c4dc;
+  position: absolute;
+  bottom: 0;
+
+}
+
+.bottom span {
+  color: white;
+  font-size: 28rpx;
+  line-height: 70rpx;
+}
+
+.class-container {
+  width: 90%;
+  height: 156rpx;
+  margin: 40rpx auto;
+  /* border: 1px solid red; */
+  background-color: #fff;
+  border-radius: 12rpx;
+  position: relative;
+  padding: 25rpx 0;
+}
+
+.class-container image {
+  width: 100rpx;
+  height: 100rpx;
+  position: absolute;
+  right: 50rpx;
+  top: 40rpx;
+}
+
+.course {
+  left: 20rpx;
+  top: 60rpx;
+  font-size: 38rpx;
+  color: #1a1a1a;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+.class {
+  display: block;
+  font-size: 32rpx;
+}
+.time {
+  font-size: 12px;
+}
+.number {
+  font-size: 24rpx;
+  color: #1a1a1a;
+  margin-left: 5%;
+}
+.del{
+  position: absolute;
+  right: 5%;
+}
+

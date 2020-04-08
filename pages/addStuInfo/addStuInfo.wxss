@@ -1,0 +1,32 @@
+/* pages/addStuInfo/addStuInfo.wxss */
+/* page{
+  margin: 0 40rpx;
+} */
+
+.box {
+  height: 120rpx;
+  border-bottom: 1px solid #f2f2f2;
+  margin:0 40rpx 30rpx;
+}
+
+.box text{
+  color: #101010;
+  font-weight: 600;
+}
+input{
+  margin-top: 5px;
+}
+radio-group{
+  margin-top: 5px;
+}
+.button{
+  height: 80rpx;
+  width: 200rpx;
+  /* border: 1px solid red; */
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 30px;
+  background-color: #539EB7;
+  color: #fff;
+  margin: auto;
+}

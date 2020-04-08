@@ -1,0 +1,30 @@
+/* wxss设置高度固定为85rpx;内容和外层wrap要设置成一样 */
+.contain{
+  border: 1px solid red;
+}
+.question_info{
+  height: 200rpx;
+  overflow: hidden;
+}
+.question_info_show{
+  height: auto;
+}
+.question_info_txt{
+  min-height: 200rpx;
+  color: #4F4F4F;
+  line-height: 1.5;
+  font-family:PingFangSC;
+}
+.elips{
+  display: box;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  height: 85rpx;
+  overflow: hidden;
+}
+.strech{
+  display: block;
+  height: auto;
+}

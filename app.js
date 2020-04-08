@@ -1,85 +1,145 @@
+//使用promisifyAll解决异步
+import {
+  promisifyAll,
+  promisify
+} from 'miniprogram-api-promise';
+var http = require("utils/request.js")
+//mock
+// Mock: require("./utils/WxMock.js"),
+// var Mock=require("./utils/WxMock.js"),
 App({
+
   /**
    * 全局变量
    */
-  //接口地址
-  globalUrl : 'https://www.zhangaishan.com.cn/wxApp',
   //图片链接
-  imgUrl: 'https://www.zhangaishan.com.cn', 
-  //token
-  token : '',
+  imgUrl: 'https://www.zhangaishan.com.cn',
 
+  //token
+  token: '',
+
+  //是否授权(默认未授权)
+  isAuth: false,
 
   /**
    * 全局方法
    */
   //判空
-  isBlank: function (obj) {
-    return (obj == undefined || obj == '' || obj == null || JSON.stringify(obj) == "{}" ) ? true : false;
+  isBlank: function(obj) {
+    return (obj == undefined || obj == '' || obj == null || JSON.stringify(obj) == "{}") ? true : false;
   },
-  //弹窗提示
-  showMsg: function (msg) {
 
+  //弹窗提示
+  showMsg: function(msg) {
+    wx.showToast({
+      title: msg,
+      icon: 'none'
+    })
   },
+
   //保存用户信息
-  saveGlobalUserInfo: function (userInfo) {
+  saveGlobalUserInfo: function(userInfo) {
+    console.log("saveGlobalUserInfo:", userInfo)
     wx.setStorageSync("userInfo", userInfo);
   },
+
   //获取用户信息
-  getGlobalUserInfo: function () {
+  getGlobalUserInfo: function() {
+    console.log("getGlobalUserInfo:", wx.getStorageSync("userInfo"))
     return wx.getStorageSync("userInfo");
   },
-  onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
 
-    // 登录
+  //保存openId
+  saveOpenId: function(openId) {
+    console.log("saveOpenId:", openId)
+    wx.setStorageSync("openId", openId);
+  },
+
+  //获取openId
+  getOpenId: function() {
+    console.log("getOpenId:", wx.getStorageSync("openId"))
+    return wx.getStorageSync("openId");
+  },
+
+  init:function(){
+    if (this.isBlank(this.getOpenId()) && this.isBlank(this.getGlobalUserInfo()) ){
+      this.login()
+    }
+  },
+
+  login: function(){
+    let that = this
     wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        console.log(res)
-        wx.request({
-          // url: this.globalUrl+'/portal/user/login',
-          url: 'https://www.zhangaishan.com.cn/wxApp/portal/user/login',
-          header: {
-            'content-type': 'application/x-www-form-urlencoded' 
-          },
-          method: 'post',
-          data: {
+      success(res) {
+        if (res.code) {
+          console.log("code: ", res.code)
+          //发起网络请求
+          let url = '/portal/user/login'
+          let params = {
             code: res.code
-          },
-          success(data) {
-            console.log(data)
-            return
+          }
+          http.request("post", url, params, function (result) {
+            //未授权
+            if (result.code != 0) {
+              //保存openId（授权后，保存用户信息用）
+              that.saveOpenId(result.data.openId);
+            } else {
+              //已授权（保存用户信息到本地缓存，方便以后使用）
+              that.saveGlobalUserInfo(result.data.userInfo)
+              //设置为已授权
+              that.isAuth = true
+              console.log('isAuth: ', that.isAuth)
+            }
+          })
+        } else {
+          console.log('wx.login获取code失败！' + res.errMsg)
+        }
+      },
+      fail(res) {
+        console.log('wx.login获取code失败！' + res.errMsg)
+      }
+    })
+  },
+
+  onLaunch: function() {
+    this.init()
+  },
+  //判断是否登陆
+  isLogin: function() {
+    //通过判断用户信息是否为空，得出用户是否登陆（用户登录需把用户信息进行保存）
+    return !this.isBlank(this.getGlobalUserInfo());
+  },
+  //授权用户信息
+  auth: function() {
+    let that = this
+    wx.getUserInfo({
+      success: function(res) {
+        console.log("用户信息：", res.userInfo)
+        var params = res.userInfo
+        params.avatar = res.userInfo.avatarUrl
+        params.openId = that.getOpenId()
+        console.log("注册信息：", params)
+        let url = '/portal/user'
+        //注册用户
+        http.request("post", url, params, function(result) {
+          if (result.code == 0) {
+            //保存用户信息
+            that.saveGlobalUserInfo(result.data.userInfo)
+            //设置为已授权
+            that.isAuth = true;
           }
         })
       }
     })
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
-            }
-          })
-        }
-      }
-    })
   },
-  globalData: {
-    userInfo: null
-  }
-  
+
+  // promise: function (resolve, reject) {
+  //   var promise = new Promise(function (resolve, reject) {
+  //     if () {
+  //       resolve(value);
+  //     } else {
+  //       reject(error);
+  //     }
+  //   });
+  // }
 })

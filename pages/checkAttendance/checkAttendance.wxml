@@ -1,5 +1,0 @@
-<map markers="{{markers}}"
-latitude="23.099956"
-longitude="113.478912"
-circles="{{circles}}"
-style="width:100%;height:500px;"></map>

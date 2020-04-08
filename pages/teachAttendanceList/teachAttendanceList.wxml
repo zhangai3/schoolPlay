@@ -1,0 +1,28 @@
+<scroll-view bindscrolltolower="bindDownLoad" style="height:{{scrollHeight}}px;" scroll-y="true">
+	<view class="class-list" wx:for="{{list}}" wx:key="index">
+	<!-- <view class="class-list"> -->
+
+		<view class="class-container" catchtap="onClassTap" data-classId="{{item.id}}">
+			<image src="/img/erweima1.png"></image>
+			<span class="course">
+				{{item.lessonName}}
+				<!-- 我学不会 -->
+			</span>
+			<span class="class">
+				{{item.className}}
+				<!-- 班级：电商164班 -->
+			</span>
+			<span class="time">
+			上课时间：{{item.createTime}}
+       <!-- 上课时间：2020-04-08 -->
+			</span>
+		</view>
+		<view class="bottom">
+			<span class="number">
+				实到：{{item.realNum}}/应到：{{item.requiredNum}}
+			</span>
+			<span class="del">删除</span>
+		</view>
+
+	</view>
+</scroll-view>

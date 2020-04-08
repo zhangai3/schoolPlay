@@ -1,0 +1,21 @@
+<scroll-view bindscrolltolower="bindDownLoad" style="height:{{scrollHeight}}px;" scroll-y="true">
+  <view class="class-list" wx:for="{{list}}" wx:key="index">
+    <view class="class-container" catchtap="gotoMap" data-attendanceId="{{item.attendanceId}}" >
+      <span class="course">
+        {{item.lessonName}}
+      </span>
+      <span class="class">
+        {{item.teacherName}}
+      </span>
+
+      <text class="number" wx:if="{{item.isSucceed == 0}}">签到失败</text>
+      <text class="number" wx:elif="{{item.isSucceed == 1}}">签到成功</text>
+      <text class="number" wx:elif="{{item.isSucceed == 2 }}">待签到</text>
+      <text class="number" wx:elif="{{item.isSucceed == 3}}">已过期</text>
+
+      <text class="time">
+      {{item.createTime}}
+    </text>
+    </view>
+  </view>
+</scroll-view>

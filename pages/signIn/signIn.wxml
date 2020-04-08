@@ -1,0 +1,6 @@
+<map id="map" longitude="{{myLongitude}}" latitude="{{myLatitude}}" markers="{{markers}}" show-location="true" wx:if="{{hasMarkers}}"  />
+
+
+<view class="clock" bindtap="signIn">
+  签到
+</view>

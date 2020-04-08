@@ -1,0 +1,89 @@
+<view class="app">
+  <view class="title">校务办公</view>
+  <view class="container">
+    <view class="box" bindtap="gotoList">
+      <view class="icon" style="background-color:pink">
+        123
+      </view>
+      考勤管理
+    </view>
+    <view class="box" bindtap="gotoScan">
+      <view class="icon" style="background-color:pink">
+        123
+      </view>
+      扫码签到
+    </view>
+    <view class="box">
+      <view class="icon" style="background-color:pink">
+        123
+      </view>
+      校园新闻
+    </view>
+    <view class="box">
+      <view class="icon" style="background-color:pink">
+        123
+      </view>
+      教师签到
+    </view>
+  </view>
+</view>
+
+<view class="app">
+  <view class="title">班级管理</view>
+  <view class="container">
+    <view class="box">
+      <view class="icon" style="background-color:pink">
+        123
+      </view>
+      访客管理
+    </view>
+    <view class="box">
+      <view class="icon" style="background-color:pink">
+        123
+      </view>
+      校园通知
+    </view>
+    <view class="box">
+      <view class="icon">
+        <!-- 123 -->
+      </view>
+      <!-- 校园新闻 -->
+    </view>
+    <view class="box">
+      <view class="icon">
+        <!-- 123 -->
+      </view>
+      <!-- 教师签到 -->
+    </view>
+  </view>
+</view>
+
+<view class="app">
+  <view class="title">校务办公</view>
+  <view class="container">
+    <view class="box">
+      <view class="icon" style="background-color:pink">
+        123
+      </view>
+      访客管理
+    </view>
+    <view class="box">
+      <view class="icon" style="background-color:pink">
+        123
+      </view>
+      校园通知
+    </view>
+    <view class="box">
+      <view class="icon">
+        <!-- 123 -->
+      </view>
+      <!-- 校园新闻 -->
+    </view>
+    <view class="box">
+      <view class="icon">
+        <!-- 123 -->
+      </view>
+      <!-- 教师签到 -->
+    </view>
+  </view>
+</view>

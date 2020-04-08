@@ -1,0 +1,20 @@
+<view class="contain">
+
+
+<view class="question_txt" wx:for="{{list}}" wx:key="index">
+  <view id="question_info" 
+        class="{{!requireAll?'question_info':'question_info_show'}}">
+    <text id="question_info_txt" 
+          class="question_info_txt {{isToggle && !requireAll?'elips':'strech'}}">
+          {{list.summary}}
+    </text>
+  </view>
+  <view wx:if="{!isToggle}">
+    <view class="more_txt" bindtap="requireTxt">
+      <text wx:if="{{!requireAll[index]}}">全部</text>
+      <text wx:if="{{requireAll[index]}}">收起</text>
+    </view>
+  </view>
+</view>
+
+</view>

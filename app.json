@@ -1,24 +1,34 @@
 {
-  "pages": [
-    "pages/post/post",
-    "pages/login/index",
-    "pages/index/index",
-    "pages/checkAttendance/checkAttendance",
-    
+  "pages": [    "pages/index/index",
+
+    "pages/teachAttendanceList/teachAttendanceList",
+    "pages/appStore/appStore",
     "pages/mine/mine",
-    "pages/timetable/timetable"  
+    "pages/addTeachInfo/addTeachInfo",
+    "pages/addStuInfo/addStuInfo",
+    "pages/identity/identity",
+    "pages/stuInfo/stuInfo",
+    "pages/teacherInfo/teacherInfo",
+    "pages/posting/posting",
+    "pages/post/post",
+    "pages/stuAttendanceList/stuAttendanceList",
+    "pages/teachAttendanceDetail/teachAttendanceDetail",
+    "pages/signIn/signIn",
+    "pages/timetable/timetable",
+    "pages/scan/scan"
   ],
   "window": {
     "navigationBarTitleText": "广航",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+
   },
   "tabBar": {
     "color": "#ccc",
     "selectedColor": "#35495e",
     "backgroundColor": "#f9f9f9",
-    "list": [
-      {
+    "list": [{
         "iconPath": "tarBar/index.png",
         "selectedIconPath": "tarBar/index1.png",
         "pagePath": "pages/index/index",
@@ -33,8 +43,8 @@
       {
         "iconPath": "tarBar/checkAttendance.png",
         "selectedIconPath": "tarBar/checkAttendance1.png",
-        "pagePath": "pages/checkAttendance/checkAttendance",
-        "text": "考勤"
+        "pagePath": "pages/appStore/appStore",
+        "text": "应用中心"
       },
       {
         "iconPath": "tarBar/mine.png",
