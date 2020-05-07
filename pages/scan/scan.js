@@ -38,7 +38,6 @@ Page({
         that.setData({
           imgUrl: imgUrl
         })
-
       } else {
         wx.showToast({
           title: res.msg

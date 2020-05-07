@@ -128,5 +128,8 @@ Page({
     wx.navigateTo({
       url: '../teachAttendanceDetail/teachAttendanceDetail?id=' + classId,
     })
+  },
+  goToScan:function(){
+
   }
 })

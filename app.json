@@ -1,9 +1,9 @@
 {
   "pages": [    
-    "pages/index/index",
-
-    "pages/teachAttendanceList/teachAttendanceList",
     "pages/appStore/appStore",
+    "pages/scan/scan",
+    "pages/index/index",
+    "pages/teachAttendanceList/teachAttendanceList",
     "pages/mine/mine",
     "pages/addTeachInfo/addTeachInfo",
     "pages/addStuInfo/addStuInfo",
@@ -15,8 +15,7 @@
     "pages/stuAttendanceList/stuAttendanceList",
     "pages/teachAttendanceDetail/teachAttendanceDetail",
     "pages/signIn/signIn",
-    "pages/timetable/timetable",
-    "pages/scan/scan"
+    "pages/timetable/timetable"
   ],
   "window": {
     "navigationBarTitleText": "广航",

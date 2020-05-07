@@ -7,8 +7,8 @@
       </view>
       <view class="nt">
         <view class="name">
-          <!-- {{item.author}} -->
-          测试昵称
+          {{item.author}}
+          <!-- 测试昵称 -->
         </view>
         <view class="time">
           {{item.createTime}}

@@ -1,6 +1,6 @@
 
-//var host = 'https://www.zhangaishan.com.cn/wxApp'; //项目地址  正式环境
-var host = 'http://192.168.0.103:8080/wxApp'; //项目地址  本地环境
+var host = 'https://www.zhangaishan.com.cn/wxApp'; //项目地址  正式环境
+// var host = 'http://192.168.0.103:8080/wxApp'; //项目地址  本地环境
 
 function request(type,url,postData,doSuccess,doFail) {
   wx.request({
