@@ -1,4 +1,5 @@
 // pages/appStore/appStore.js
+const app = getApp()
 Page({
 
   /**
@@ -66,7 +67,7 @@ Page({
   gotoList: function() {
     //1学生 2老师  3管理员
     //获取用户信息，判断用户类型
-    let userType = 2;
+    let userType = app.getGlobalUserInfo().userType
     if(userType == 1){
       wx.navigateTo({
         //
@@ -84,7 +85,12 @@ Page({
     wx.scanCode({
       onlyFromCamera: true,
       success(res) {
-        console.log(res)
+        let id = res.result.split(":")
+        wx.navigateTo({
+          url: '/pages/signIn/signIn?attendanceId=' + id[1]
+        })
+        // console.log("id", id[1])
+        // console.log("scanCode",res)
       }
     })
   }

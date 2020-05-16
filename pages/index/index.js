@@ -149,6 +149,7 @@ Page({
 
   /**
    * 用户点击右上角分享
+   * 
    */
   onShareAppMessage: function() {
 
@@ -160,8 +161,13 @@ Page({
         url: '/pages/post/post'
       })
     } else { //未授权（弹出授权窗口）
-      this.setData({
-        show: true
+      // this.setData({
+      //   show: true
+      
+      // })
+      wx.setStorageSync("redirectTo", '/pages/post/post');
+      wx.navigateTo({
+        url: '/pages/auth/auth',
       })
     }
   },

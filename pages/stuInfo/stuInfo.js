@@ -1,43 +1,44 @@
 // pages/stuInfo/stuInfo.js
 const app = getApp()
 var http = require("../../utils/request.js")
-//请求数据
-var getData = function(that) {
-  // var that=this
-  //调接口
-  let url = "/portal/student/getByUserId"
-  //参数
-  let params = {
-    userId: app.getGlobalUserInfo().id,
-  }
-  http.request("get", url, params, function(res) {
-    if (res.code == 0) {
-      console.log(res)
-      that.setData({
-        dataSource:res.data
-      })
-    } else {
-      wx.showToast({
-        title: res.msg
-      })
-    }
-  })
-}
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    dataSource:{}
+    dataSource: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var that=this
-    getData(that)
+    var that = this
+    // getData(that)
+    //请求数据
+
+    // var that=this
+    //调接口
+    let url = "/portal/student/getByUserId"
+    //参数
+    let params = {
+      userId: app.getGlobalUserInfo().id,
+    }
+    http.request("get", url, params, function(res) {
+      if (res.code == 0) {
+        console.log(res)
+        that.setData({
+          dataSource: res.data
+        })
+      } else {
+        wx.showToast({
+          title: res.msg
+        })
+      }
+    })
+
   },
 
   /**

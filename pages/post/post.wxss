@@ -38,26 +38,28 @@ textarea {
 /* 添加照片 */
 
 .add-images-box {
-  width: 100%;
-  height: 700rpx;
+  /* width: 100%; */
+  width: 90%;
+  /* height: 700rpx; */
   margin: 20rpx auto;
   background-color: white;
 }
 
 .add-images {
-  width: 90%;
+  /* width: 90%; */
   margin: auto;
   /* flex布局 */
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .img-box {
-  height: 200rpx;
-  width: 200rpx;
+  /* height: 200rpx;
+  width: 200rpx; */
   margin-top: 20rpx;
+  padding: 40rpx;
 }
 
 .add {
@@ -67,24 +69,32 @@ textarea {
   align-items: center;
 }
 
-.add image {
+/* .add image {
   height: 100rpx;
   width: 100rpx;
-}
+} */
 
-image {
-  height: 200rpx;
+.postImage {
   width: 200rpx;
+  height: 200rpx;
 }
 
 /* 添加照片结束 */
-
+.bottom{
+  position: fixed;
+  bottom: 40rpx;
+  width: 100%;
+  height: 200rpx;
+}
 .submit {
   height: 60rpx;
   width: 200rpx;
   line-height: 60rpx;
   margin: auto;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+  background-color: #BBE4F9;
   border-radius: 60rpx;
   text-align: center;
+  color: #fff;
+  /* right: 50%; */
 }

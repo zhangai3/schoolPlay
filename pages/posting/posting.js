@@ -9,7 +9,7 @@ var articleId;
 //获取评论内容
 var loadMore = function (that) {
   if (hasNextPage) {
-    let geCommentsUrl = "/articleComment/pageArticleComments"
+    let geCommentsUrl = "/portal/pageArticleComments"
     //获取用户信息，把对应用户的userId作为参数查询考勤列表参数
     let params = {
       articleId: articleId, //考勤id
@@ -63,13 +63,14 @@ Page({
     scrollHeight: 0,
     //文章内容
     commentContent: '',
+    avatar:''
   },
 
   onLoad: function (options) {
     app.init()
     var that = this
     //请求文章详情信息
-    let getArticalUrl = "/article/article/" + options.id
+    let getArticalUrl = "/portal/article/" + options.id
     articleId = options.id
     let params = {
       id: options.id
@@ -79,7 +80,8 @@ Page({
         author: res.data.author,
         createTime: res.data.createTime,
         content: res.data.content,
-        coverUrl: res.data.coverUrl
+        coverUrl: 'https://www.zhangaishan.com.cn'+res.data.coverUrl,
+        avatar: res.data.avatar,
       })
     })
     //请求文章评论（下拉分页）

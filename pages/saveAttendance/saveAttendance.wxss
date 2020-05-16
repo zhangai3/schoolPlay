@@ -1,0 +1,59 @@
+/* pages/saveAttendance/saveAttendance.wxss */
+
+/* page {
+  padding: 0 80rpx;
+  box-sizing: border-box;
+} */
+
+.class {
+  margin: 20rpx 0 50rpx 0;
+  color: #9c9c9c;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.circle {
+  width: 250rpx;
+  height: 250rpx;
+  background-color: #376cf6;
+  border-radius: 50%;
+  text-align: center;
+  margin: auto;
+  color: #fff;
+  font-size: 40rpx;
+  font-weight: 600;
+  line-height: 250rpx;
+}
+
+.list {
+  background: #fafafa;
+  padding: 14rpx 30rpx;
+  margin-top: 30rpx;
+  border-radius: 30rpx;
+  font-size: 14px;
+  color: #a6a6a6;
+  box-sizing: border-box;
+}
+
+.allow {
+  float: right;
+  color: #376cf6;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+textarea {
+  display: inline-block;
+  width: 80%;
+  height: 100%;
+  float: right;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  border-top: 2px solid #ebebeb;
+  height: 150rpx;
+  width: 100%;
+  box-sizing: border-box;
+}

@@ -1,26 +1,35 @@
-<view class="top">
-  <view wx:for="{{['一','二','三','四','五','六','日']}}" class="top-text">周{{item}}</view>
+<view class="bg-box">
+  <view class="bg">
+  </view>
+  <view style="z-index:9999;padding-left:40rpx;">
+    <image src="../../img/logo2.jpg"></image>
+    <text style="z-index:999;color:#fff;font-size:44rpx;display:inline-block">广州航海学院</text>
+  </view>
+
 </view>
+<view class="box">
+  <view class="title">
+    <text style="height:100%;width:5rpx;background-color:#4687F4;color:#4687F4">1</text>
+    <text style="font-size:44rpx;">Mine</text>
+    <text style="margin-left:10rpx;">我的课程</text>
+  </view>
 
-<scroll-view scroll-y="true" class="scroll">
-  <view style="height:1200rpx;width:730rpx;display:flex;">
-  
-    <view class="test">
-      <view wx:for="{{[1,2,3,4,5,6,7,8,9,10]}}" class="left">
-        {{item}}
+  <view class="listContainer">
+    <view class="list" wx:for="{{wlist}}" bindtap="goToDetails" data-id="{{item.id}}">
+      <view class="leftBox">
+        <text class="time">
+          {{item.lessonDate}}
+        </text>
       </view>
-    </view>
-
-    <view wx:for="{{[1,2,3,4,5,6,7,8,9,10]}}">
-      <view style="width:750rpx;margin-top:{{(index+1)*100}}rpx;  position: absolute;border-bottom:0.5rpx dotted {{index==3?'red':'lightgray'}};">
-      </view>
-    </view>
-
-    <!--课表-->
-    <view wx:for="{{wlist}}">
-      <view class="flex-item kcb-item" bindtap="showCardView" data-statu="open" data-index="{{index}}" style="margin-left:{{(item.xqj-1)*100}}rpx;margin-top:{{(item.skjc-1)*100+5}}rpx;height:{{item.skcd*100-5}}rpx;background-color:{{colorArrays[index%9]}}">
-        <view class="smalltext">{{item.kcmc}}</view>
+      <view class="rightBox">
+        <text class="lessonName">{{item.lessonName}}</text>
+        <view class="className">
+          <span class="iconfont icon-shijian"> </span>
+          <text style="margin-right:20rpx;">{{item.lessonTime}}</text>
+        </view>
       </view>
     </view>
   </view>
-</scroll-view>
+
+
+</view>

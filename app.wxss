@@ -9,6 +9,14 @@
   float: right;
 }
 
+.inlineblock{
+  display: inline-block;
+
+}
+.block{
+  display: block;
+}
+
 page {
   background-color: #fff;
 }

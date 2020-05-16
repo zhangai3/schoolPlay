@@ -4,7 +4,7 @@ page {
   background-color: #fff;
   /* padding: 0rpx 20rpx; */
   box-sizing: border-box;
-  /* height: 100%; */
+  height: 100%;
 }
 
 .list {
@@ -54,13 +54,17 @@ page {
 .main {
   /* border-bottom: 1px solid #efefef; */
   font-size: 26rpx;
-  margin: 10rpx 0;
+  margin: 30rpx 0;
   box-sizing: border-box;
+  width: 100%;
+}
+
+.summary {
+  margin-bottom: 30rpx;
 }
 
 .main image {
-  width: 200rpx;
-  height: 200rpx;
+  /* width: 200rpx; *//* height: 200rpx; */
   border-radius: 20rpx;
   margin-right: 10rpx;
 }
@@ -115,10 +119,12 @@ page {
   margin-top: 20rpx;
   float: right;
 }
-.icon .iconfont{
+
+.icon .iconfont {
   position: relative;
-  top:0.1rem;
+  top: 0.1rem;
 }
+
 .icon text {
   font-size: 24rpx;
   /* position: absolute; */
@@ -130,6 +136,7 @@ page {
 .input {
   /* border: 1px solid red; */
   width: 70%;
+  height: 60rpx;
   margin-top: 20rpx;
   border-radius: 20rpx;
   background-color: #ecedef;

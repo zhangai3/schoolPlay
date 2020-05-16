@@ -233,6 +233,7 @@ module.exports =
             }, {});
             //用户授权操作
             app.auth()
+            console.log("app.auth()")
           },
 
         }

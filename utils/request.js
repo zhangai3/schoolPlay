@@ -1,23 +1,25 @@
-
-var host = 'https://www.zhangaishan.com.cn/wxApp'; //项目地址  正式环境
-// var host = 'http://192.168.0.103:8080/wxApp'; //项目地址  本地环境
+// var host = 'https://www.zhangaishan.com.cn/wxApp'; //项目地址  正式环境
+var host = 'http://192.168.0.103:8080/wxApp'; //项目地址  本地环境/
 
 function request(type,url,postData,doSuccess,doFail) {
+  let token = wx.getStorageSync('token')
+  // // console.log("token:", token)
+  postData.token = token
   wx.request({
     url: host+url,
     data: postData,
     header: {
-      "content-type":"application/json"
+      "content-type":"application/json",
+      "token":token
     },
     method: type,
     dataType: 'json',
     responseType: 'text',
-    success: function (res) { 
-      //setFileToken(res);
+    success: function (res) {
+      setToken(res) 
       doSuccess(res.data)
     },
     fail: function (res) { 
-      // doFail()
       wx.showToast({
         title: '网络错误',
         icon: 'none'
@@ -26,7 +28,12 @@ function request(type,url,postData,doSuccess,doFail) {
     complete: function (res) { },
   })
 }
-
+function setToken(res) {
+  if (res.data.data !=null && res.data.data.token) {
+    let token = res.data.data.token
+    wx.setStorageSync('token',token)
+  }
+}
 // function requestF(url, postData, doSuccess, doFail) {
 //   wx.request({
 //     url: host + url,
@@ -72,17 +79,9 @@ function request(type,url,postData,doSuccess,doFail) {
 //     }
 //   })
 // }
-// function setFileToken(res) {
-//   if (res.header["Set-Cookie"] && res.header["Set-Cookie"].indexOf('fileToken') != -1) {
-//     let arr = res.header["Set-Cookie"].split('fileToken=')
-//     // console.log(arr[arr.length - 1].split(';')[0])
-//     wx.setStorageSync("fileToken", arr[arr.length - 1].split(';')[0])
-//   }
-// }
+
 
 module.exports.request = request;
-// module.exports.requestF = requestF;
-// module.exports.getData = getData;
 module.exports.host = host;
-// module.exports.setFileToken = setFileToken;
+
 

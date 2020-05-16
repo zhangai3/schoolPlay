@@ -1,56 +1,86 @@
-/**index.wxss**/
-
-.flex-item {
-  width: 95rpx;
-  height: 100px;
-}
-
-.kcb-item {
-  position: absolute;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  border-radius: 5px;
-}
-
-.smalltext {
-  font-size: 8pt;
-  color: #fff;
-  padding-left: 2px;
-}
-
-.top {
-  display: flex;
-  flex-direction: row;
-  margin-left: 35rpx;
-  /* background-color: #d2e6b3; */
-  /* color: #7cba23; */
-}
-
-.top-text {
-  width: 100rpx;
-  height: 35rpx;
-  font-size: 9pt;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-}
-
-.scroll {
-  height: 1170rpx;
-  z-index: 101;
-  position: fixed;
-}
-
-.left {
-  width: 35rpx;
-  height: 100rpx;
-  font-size: 9pt;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-}
-.test{
+.bg-box {
+  position: relative;
+  height: 400rpx;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.bg {
+  height: 400rpx;
+  width: 100%;
+  position: absolute;
+  background-image: url(https://www.zhangaishan.com.cn/group1/M00/00/02/rBCBM16_xq2AfCISAAQF5HSwLhg516.png);
+  background-position: center center;
+  background-size: cover;
+  filter: blur(2px);
+}
+
+.bg-box image {
+  width: 50rpx;
+  height: 50rpx;
+  z-index: 99999;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 30rpx;
+}
+
+.box {
+  padding: 0 40rpx;
+}
+
+.title {
+  margin-bottom: 50rpx;
+}
+
+.leftBox, .rightBox {
+  display: inline-block;
+}
+
+.leftBox {
+  margin-right: 80rpx;
+  position: relative;
+}
+
+.rightBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.listContainer {
+  /* overflow: hidden; */
+  box-sizing: border-box;
+}
+
+.list {
+  width: 100%;
+  display: flex;
+  padding: 20rpx 0;
+  border-bottom: 1px solid #f4f5f7;
+  box-sizing: border-box;
+}
+
+.time {
+  margin: auto;
+}
+
+.time {
+  font-size: 24rpx;
+  font-weight: 700;
+  color: #5e5e5e;
+}
+
+.lessonName {
+  font-size: 36rpx;
+  color: #5e5e5e;
+  font-weight: 700;
+  margin-bottom: 15rpx;
+}
+.className .iconfont{
+  margin-right: 20rpx;
+}
+.className {
+  font-size: 24rpx;
 }

@@ -2,9 +2,16 @@
   <view class="bg">
   </view>
   <view class="avatar-box">
-    <image class="avatar" src="http://47.98.240.189/images/avatar.jpg" />
+    <!-- <image class="avatar" src="../../img/mine.jpg" /> -->
+    <open-data type="userAvatarUrl"></open-data>
+  
   </view>
-  <text class="name">Smahil</text>
+  <view>
+  <text class="name"><open-data type='userNickName'  lang="zh_CN"></open-data></text>
+  
+  </view>
+  
+  
 </view>
 
 <view class="mine-list-box">

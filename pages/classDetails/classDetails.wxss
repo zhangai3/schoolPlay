@@ -1,0 +1,50 @@
+/* pages/classDetails/classDetails.wxss */
+
+page {
+  background-color: #f4f5f7;
+}
+
+.boxContainer {
+  padding: 40rpx 30rpx;
+  margin-top: 30rpx;
+  background-color: #fff;
+}
+
+.lessonName {
+  font-size: 40rpx;
+  margin-bottom: 40rpx;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  width: 100%;
+}
+
+.add {
+  display: inline-block;
+  font-size: 20rpx;
+  width: 100rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  vertical-align: middle;
+  border: 1px solid #6fb1d4;
+  color: #6fb1d4;
+  border-radius: 20rpx;
+  text-align: center;
+  position: absolute;
+  right: 20rpx;
+}
+
+.list {
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+}
+
+.icon {
+  margin-right: 20rpx;
+  font-weight: 700;
+}
+
+.title {
+  margin-right: 15rpx;
+  color: #838383;
+}

@@ -3,7 +3,7 @@
   <view class="list">
     <view class="mine">
       <view class="avatar">
-        <image src="../../img/touxiang.jpg"></image>
+        <image src="{{avatar}}"></image>
       </view>
       <view class="nt">
         <view class="name">
@@ -17,7 +17,7 @@
     <view class="main">
       <view class="summary">{{content}}</view>
       <view class="photos" style="margin:10rpx 0;">
-        <image src="{{coverUrl}}"></image>
+        <image style="width:100%" mode="widthFix" src="{{coverUrl}}"></image>
         <!-- <image src="../../img/touxiang.jpg"></image> -->
         <!-- <image src="../../img/touxiang.jpg"></image> -->
       </view>
@@ -25,10 +25,10 @@
   </view>
   <view class="comment-container">
     <view style="color:#131313;font-size:34rpx;font-weight:700;">评论</view>
-    <view class="comment-list"  wx:for="{{list}}" wx:key="index">
+    <view class="comment-list" wx:for="{{list}}" wx:key="index">
       <view class="comment-mine">
         <view class="comment-avatar">
-          <image src="../../img/touxiang.jpg"></image>
+          <image src="{{item.avata}}"></image>
         </view>
         <view class="nt" style="vertical-align: center;">
           <view style="font-size:26rpx;color:#777777;">

@@ -15,8 +15,6 @@ App({
   //图片链接
   imgUrl: 'https://www.zhangaishan.com.cn',
 
-  //token
-  token: '',
 
   //是否授权(默认未授权)
   isAuth: false,
@@ -39,46 +37,42 @@ App({
 
   //保存用户信息
   saveGlobalUserInfo: function(userInfo) {
-    console.log("saveGlobalUserInfo:", userInfo)
     wx.setStorageSync("userInfo", userInfo);
   },
 
   //获取用户信息
   getGlobalUserInfo: function() {
-    console.log("getGlobalUserInfo:", wx.getStorageSync("userInfo"))
     return wx.getStorageSync("userInfo");
   },
 
   //保存openId
   saveOpenId: function(openId) {
-    console.log("saveOpenId:", openId)
     wx.setStorageSync("openId", openId);
   },
 
   //获取openId
   getOpenId: function() {
-    console.log("getOpenId:", wx.getStorageSync("openId"))
     return wx.getStorageSync("openId");
   },
 
-  init:function(){
-    if (this.isBlank(this.getOpenId()) && this.isBlank(this.getGlobalUserInfo()) ){
+  init: function() {
+    if (this.isBlank(this.getOpenId()) || this.isBlank(this.getGlobalUserInfo())) {
       this.login()
     }
   },
 
-  login: function(){
+  login: function() {
     let that = this
     wx.login({
       success(res) {
         if (res.code) {
           console.log("code: ", res.code)
           //发起网络请求
-          let url = '/portal/user/login'
+          let url = '/portal/login'
           let params = {
             code: res.code
           }
-          http.request("post", url, params, function (result) {
+          http.request("post", url, params, function(result) {
             //未授权
             if (result.code != 0) {
               //保存openId（授权后，保存用户信息用）
@@ -88,7 +82,6 @@ App({
               that.saveGlobalUserInfo(result.data.userInfo)
               //设置为已授权
               that.isAuth = true
-              console.log('isAuth: ', that.isAuth)
             }
           })
         } else {
@@ -129,6 +122,10 @@ App({
             that.isAuth = true;
           }
         })
+      },
+      fail:function(res){
+        console.log("fail")
+
       }
     })
   },

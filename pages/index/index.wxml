@@ -3,12 +3,11 @@
   <view class="list" wx:for="{{list}}" wx:key="index" data-articleId="{{item.id}}" bindtap="goToPosting">
     <view class="mine">
       <view class="avatar">
-        <image src="../../img/touxiang.jpg"></image>
+        <image src="{{item.avatar}}"></image>
       </view>
       <view class="nt">
         <view class="name">
           {{item.author}}
-          <!-- 测试昵称 -->
         </view>
         <view class="time">
           {{item.createTime}}
@@ -18,21 +17,15 @@
     <view class="main">
       <view class="summary">{{item.content}}</view>
       <view class="photos" style="margin:10rpx 0;">
-        <image src="{{item.coverUrl}}"></image>
+        <image style="width:500rpx" mode="widthFix" src="{{item.coverUrl}}"></image>
       </view>
     </view>
     <view class="bottom">
-      <view class="icon" style="left:10%;">
-        <span class="iconfont icon-pinglun"></span>
-        <text>12</text>
-      </view>
-      <view class="icon" style="left:46%;  color:#BE727C;">
-        <span class="iconfont icon-xihuan"></span>
-        <text>12</text>
-      </view>
-      <view class="icon" style="right:13%;">
-        <span class="iconfont icon-fenxiang"></span>
-        <text>12</text>
+      <view class="icon" style="float:right">
+
+        <span class="iconfont icon-pinglun" style="color:#BE727C; font-size: 36rpx; "></span>
+        <text>{{item.commentNum}}</text>
+        <!-- <text>11</text> -->
       </view>
     </view>
   </view>

@@ -1,0 +1,33 @@
+<view class="boxContainer">
+  <view class="lessonName">
+    {{dataSource.lessonName}}
+    <view class="add" bindtap="goToSaveAttendance" data-classid="{{dataSource.classId}}" data-lessonid="{{dataSource.lessonId}}" 
+    data-lessonname="{{dataSource.lessonName}}"
+    data-classname="{{dataSource.className}}"
+    wx:if="{{flag}}">
+      发布考勤
+    </view>
+  </view>
+
+  <view class="list">
+    <text class="icon iconfont icon-riqi" style="color:#80D8CA"></text>
+    <text class="title">日期</text>
+    <text class="lable">{{dataSource.lessonDate}}</text>
+  </view>
+  <view class="list">
+    <text class="icon iconfont icon-shijian" style="color:#80DA8B"></text>
+    <text class="title">时间</text>
+    <text class="lable">{{dataSource.lessonTime}}</text>
+  </view>
+  <view class="list">
+    <text class="icon iconfont icon-banji" style="color:#76B0CB"></text>
+    <text class="title">班级</text>
+    <text class="lable">{{dataSource.className}}</text>
+  </view>
+  <view class="list">
+    <text class="icon iconfont icon-w_laoshi" style="color:#85D0A0"></text>
+    <text class="title">老师</text>
+    <text class="lable">{{dataSource.teacherName}}</text>
+  </view>
+
+</view>

@@ -1,3 +1,4 @@
+const app = getApp()
 var http = require("../../utils/request.js")
 var pageNum = 1; //第几页
 var pageSize = 5; //每页条数
@@ -9,7 +10,7 @@ var loadMore = function(that) {
     let url1 = "/portal/pageAttendanceDetails"
     //获取用户信息，把对应用户的userId作为参数查询考勤列表参数
     let params = {
-      userId: 3, //学生id
+      userId: app.getGlobalUserInfo().id, //学生id
       pageSize: pageSize,
       pageNum: pageNum
     }

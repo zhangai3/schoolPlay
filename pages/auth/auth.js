@@ -1,4 +1,6 @@
 // pages/auth/auth.js
+const app = getApp()
+var http = require("../../utils/request.js")
 Page({
 
   /**
@@ -12,8 +14,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var redirectTo = options.url;
-    console.log(redirectTo)
+    
+    
     // 查看是否授权
     wx.getSetting({
       success(res) {
@@ -21,19 +23,38 @@ Page({
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称
           wx.getUserInfo({
             success: function (res) {
-              console.log(res.userInfo)
-              // 跳转到要跳转的页面
-              wx.navigateTo({
-                url: redirectTo
-              })
+              console.log("res.userInfo",res.userInfo)
+              var params = res.userInfo
+              
+              
             }
           })
         }
+
       }
     })
   },
   bindGetUserInfo(e) {
     console.log(e.detail.userInfo)
+    var params = e.detail.userInfo
+    params.avatar = e.detail.userInfo.avatarUrl
+    params.openId = app.getOpenId()
+    console.log("params", params)
+    console.log("注册信息：", params)
+    let url = '/portal/user'
+    //注册用户
+    http.request("post", url, params, function (result) {
+      if (result.code == 0) {
+        //保存用户信息
+        app.saveGlobalUserInfo(result.data.userInfo)
+        // 跳转到要跳转的页面
+        var redirectTo = wx.getStorageSync("redirectTo");;
+        console.log(redirectTo)
+        wx.navigateTo({
+          url: redirectTo
+        })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

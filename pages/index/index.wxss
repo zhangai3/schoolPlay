@@ -12,6 +12,7 @@ page {
   background-color: #fff;
   padding: 20rpx 40rpx 0;
   box-sizing: border-box;
+  border-bottom: 4px solid #f5f5f5;
 }
 
 .mine {
@@ -26,6 +27,7 @@ page {
   border-radius: 50%;
   overflow: hidden;
   display: inline-block;
+  margin-right: 15rpx;
 }
 
 .avatar image {
@@ -40,7 +42,7 @@ page {
 }
 
 .name {
-  font-size: 40rpx;
+  font-size: 35rpx;
 }
 
 .time {
@@ -49,14 +51,16 @@ page {
 }
 
 .main {
-  border-bottom: 1px solid #efefef;
-  font-size: 26rpx;
-  margin: 10rpx 0;
+  /* border-bottom: 1px solid #efefef; */
+  font-size: 30rpx;
+  margin: 30rpx 0;
   box-sizing: border-box;
+}
+.summary{
+  margin-bottom: 30rpx;
 }
 .main image{
   width: 400rpx;
-  max-height: 400rpx;
   /* height: auto; */
   border-radius: 20rpx;
   margin-right: 10rpx;
@@ -71,6 +75,7 @@ page {
   display: inline-block;
   position: absolute;
   line-height: 60rpx;
+  right: 50rpx;
 }
 
 .icon text {

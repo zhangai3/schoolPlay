@@ -1,0 +1,29 @@
+<view style="padding:0 80rpx;box-sizing:border-box;">
+  <text class="block" style="font-size:20px;font-weight:600;">{{lessonName}}</text>
+  <text class="block class">{{className}}</text>
+  <view class="circle">
+    <span class="save" bindtap="saveAttence">发布</span>
+  </view>
+  <view class="list">
+    <span wx:if="{{flag==false}}">上传地理位置</span>
+    <span wx:else>{{address}}</span>
+    <a class=" allow " bindtap="position">允许</a>
+  </view>
+  <view class="list ">
+    <text class="inlineblock ">考勤范围</text>
+    <view class="section " style="display:inline-block ">
+      <picker bindchange="bindPickerChange " value="{{index}} " range="{{array}}" bindchange="pickerChange">
+        <view class="picker ">
+          当前选择：{{array[index]}}米
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="list " style="height:100rpx; ">
+    <text class="inlineblock ">备注</text>
+    <form bindsubmit="bindFormSubmit">
+      <textarea placeholder="选填 " placeholder-style="float:right" bindinput="handleTextarea"></textarea>
+    </form>
+
+  </view>
+</view>

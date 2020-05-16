@@ -9,7 +9,11 @@ Page({
     title: '没有', //标题内容
     content: '', //正文内容
     images: [], //预览的图片
-    coverUrl: ''
+    coverUrl: '',
+    haveImg: false,
+  },
+  onLoad: function() {
+    app.init()
   },
   chooseImage(e) {
     let that = this
@@ -21,15 +25,20 @@ Page({
         const images = this.data.images.concat(res.tempFilePaths)
         // 限制最多只能留下3张照片
         that.setData({
-          images: images.length <= 1 ? images : images.slice(0, 1)
+          images: images.length <= 1 ? images : images.slice(0, 1),
+          haveImg: true
         })
+        console.log("haveImg", that.data.haveImg)
         //上传图片
         that.uploadFile(res.tempFilePaths[0])
       }
     })
   },
-  uploadFile: function (path) {
+  uploadFile: function(path) {
+
     let that = this
+    // let token = wx.getStorageSync('token')
+    // console.log(token,"token")
     wx.uploadFile({
       url: http.host + '/upload/uploadImg',
       filePath: path,
@@ -38,34 +47,32 @@ Page({
         "Content-Type": "multipart/form-data"
       },
       formData: {
-        imgName: '33'
+        imgName: path,
+        // token: token
       },
-      success: function (res) {
+      success: function(res) {
         console.log(res.data)
         let result = JSON.parse(res.data)
         app.showMsg(result.msg)
         that.setData({
-          coverUrl: result.data
+          coverUrl: result.data,
         })
+
       },
-      fail: function (res) {
+      fail: function(res) {
         console.log('fail');
       },
     })
   },
   handleContentInput(e) {
     const value = e.detail.value
-    // this.data.content = value
-    // this.data.contentCount = value.length  
     this.setData({
       content: e.detail.value,
-      // contentCount: value.length//计算已输入的正文字数
     })
-    // console.log("222", this.data.content + this.data.contentCount)
     console.log("输入的内容", this.data.content)
   },
   //发布
-  save: function () {
+  save: function() {
     let that = this
     //发布文章
     let url = '/portal/article'
@@ -77,15 +84,15 @@ Page({
       title: '没有',
       userId: app.getGlobalUserInfo().id
     }
-    http.request("post", url, params, function (res) {
+    http.request("post", url, params, function(res) {
       if (res.code == 0) {
         wx.reLaunch({
           url: '/pages/index/index',
-          success:function(e){
+          success: function(e) {
             app.showMsg(res.msg)
           }
         })
-      }else{
+      } else {
         app.showMsg(res.msg)
       }
     })

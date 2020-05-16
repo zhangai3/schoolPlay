@@ -13,16 +13,17 @@
 <view class="add-images-box">
   <view class="add-images">
     <view class="img-box" wx:for="{{images}}" wx:key="*this">
-      <image src="{{item}}"></image>
+      <image style="width:500rpx" mode="widthFix" src="{{item}}"></image>
     </view>
-    <view class="img-box add" bindtap="chooseImage">
-      <image src="http://47.98.240.189/images/add-images.png"></image>
+    <view wx:if="{{haveImg==false}}" class="img-box add" bindtap="chooseImage">
+      <image class="postImage" src="http://47.98.240.189/images/add-images.png"></image>
     </view>
   </view>
 
 </view>
 <!-- 添加照片结束 -->
-
-<view class="submit" bindtap="save">
-  <text>发布</text>
+<view class="bottom">
+  <view class="submit" bindtap="save">
+    <text>发布</text>
+  </view>
 </view>
