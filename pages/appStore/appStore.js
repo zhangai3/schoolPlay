@@ -68,6 +68,8 @@ Page({
     //1学生 2老师  3管理员
     //获取用户信息，判断用户类型
     let userType = app.getGlobalUserInfo().userType
+    // let userType = 2
+
     if(userType == 1){
       wx.navigateTo({
         //

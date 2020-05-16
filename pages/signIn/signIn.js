@@ -8,8 +8,7 @@ let teacherLon = 0
 let radiusRange = 0
 let effectiveTime = 0
 let getClassInfo = function (attendanceId, that) {
-  //let userId = app.getGlobalUserInfo().id
-  let userId = 3
+  let userId = app.getGlobalUserInfo().id
   let params = {
   }
   http.request("get", '/portal/attendanceDetail/' + attendanceId + '/' + userId, params, function (res) {
@@ -120,44 +119,42 @@ Page({
         })
       }
     })
-    let lat1 = myLatitude
-    let lng1 = myLongitude
-    let lat2 = teacherLat
-    let lng2 = teacherLon
-    console.log(lat1)
-    console.log(lng1)
-    console.log(lat2)
-    console.log(lng2)
-    let distance = this.getDisance(lat1, lng1, lat2, lng2)
-    console.log("getDisance", distance)
-    // 0 失败 1成功 2待签 3已过期
-    let isSucceed = 0
-    let nowTime = Date.parse(Date())
-    let remark = ''
-    //在指定范围外且签到时间已过期
-    if (radiusRange < distance && effectiveTime < nowTime) {
-      isSucceed = 3
-      remark = '在指定范围外且签到时间已过期'
-    }
-    //在指定范围内但签到时间已过期
-    if (radiusRange >= distance && effectiveTime < nowTime) {
-      isSucceed = 3
-      remark = '在指定范围内但签到时间已过期'
-    }
-    //在指定范围内且签到时间已过期
-    if (radiusRange >= distance && effectiveTime >= nowTime) {
-      isSucceed = 1
-      remark = '在指定范围内且在签到时间范围内'
-    }
+    // let lat1 = myLatitude
+    // let lng1 = myLongitude
+    // let lat2 = teacherLat
+    // let lng2 = teacherLon
+    // console.log(lat1)
+    // console.log(lng1)
+    // console.log(lat2)
+    // console.log(lng2)
+    // let distance = this.getDisance(lat1, lng1, lat2, lng2)
+    // console.log("getDisance", distance)
+    // // 0 失败 1成功 2待签 3已过期
+    // let isSucceed = 0
+    // let nowTime = Date.parse(Date())
+    // let remark = ''
+    // //在指定范围外且签到时间已过期
+    // if (radiusRange < distance && effectiveTime < nowTime) {
+    //   isSucceed = 3
+    //   remark = '在指定范围外且签到时间已过期'
+    // }
+    // //在指定范围内但签到时间已过期
+    // if (radiusRange >= distance && effectiveTime < nowTime) {
+    //   isSucceed = 3
+    //   remark = '在指定范围内但签到时间已过期'
+    // }
+    // //在指定范围内且在签到时间范围内
+    // if (radiusRange >= distance && effectiveTime >= nowTime) {
+    //   isSucceed = 1
+    //   remark = '在指定范围内且在签到时间范围内'
+    // }
     let params = {
       id: id,
       lon: myLongitude,
-      lat: myLatitude,
-      isSucceed: isSucceed,
-      remark: remark
+      lat: myLatitude
     }
     http.request("put", '/portal/attendanceDetail/'+ id, params, function (res) {
-        app.showMsg(remark)
+        app.showMsg(res.msg)
     })
   },
   compareTime(time1, time2) {

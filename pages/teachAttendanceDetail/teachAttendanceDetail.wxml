@@ -1,7 +1,5 @@
 <scroll-view bindscrolltolower="bindDownLoad" style="height:{{scrollHeight}}px;" scroll-y="true">
-	<span class="iconfont icon-ico" bindtap="gotoPutScan" data-className="{{className}}" data-lessonName="{{lessonName}}" data-createTime="{{createTime}}" data-attendanceId="{{attendanceId}}">
-    321321321321
-  </span>
+	
 	<view class="class-list">
 		<view class="class-container">
 			<span class="course">
@@ -9,6 +7,9 @@
 			</span>
 			<span class="class">
 				{{className}}
+        <!-- <span class="iconfont icon-erweima" style="color:#BE727C; font-size: 36rpx; "></span> -->
+<span class="iconfont icon-erweima" bindtap="gotoPutScan" data-className="{{className}}" data-lessonName="{{lessonName}}" data-createTime="{{createTime}}" data-attendanceId="{{attendanceId}}" style="color:#BE727C; font-size: 36rpx;">
+  </span>
 			</span>
 			<text class="number">
       实到：{{realNum}}/应到：{{requiredNum}}
